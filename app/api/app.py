@@ -11,7 +11,7 @@ def predict():
     data = request.json
     
     try:
-        sample = data['text']
+        sample = data['orig_text', 'suggested_text']
     except KeyError:
         return jsonify({'error': 'No text sent'})
 
