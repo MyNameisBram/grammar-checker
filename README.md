@@ -1,7 +1,7 @@
 # grammar-checker
 grammar-checker
 
-Detect and correct grammar using transformers
+Detect and correct grammar using transformers and provide a sentence similarity score from original vs suggested sentence. 
 
 # instructions
 ## clone repository
@@ -35,7 +35,7 @@ curl --location --request POST 'http://localhost:5005/predict' \
 ## output
 ```
 {
-    "confidence": "pretty confident",
+    "original sentence": "",
     "confidence level": "mid",
     "label": "casual",
     "score": 0.8830444812774658
