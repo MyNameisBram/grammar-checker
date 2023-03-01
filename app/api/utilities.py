@@ -55,3 +55,25 @@ def similarity_score(orig, sug):
     tfidf_matrix = tfidf_vectorizer.fit_transform([processed_string1, processed_string2])
     similarity_score = cosine_similarity(tfidf_matrix)[0][1]
     return similarity_score
+
+
+def predic_func(original_sentence, suggested_sentence):
+    # pass in function 
+    corrected_sentence, correct = grammar_check(suggested_sentence)
+
+    sentence = [corrected_sentence, suggested_sentence]
+
+    if correct == True:
+        n = 1 # use suggested sentence if grammar is correct
+    else:
+        n = 0 # use corrected sentence if grammar is incorrect
+
+    d = {
+        "original_sentence": original_sentence,
+        "suggested_sentence": suggested_sentence,
+        "corrected_sentence": corrected_sentence,
+        "grammatically correct": correct,
+        "sentence_similarity": similarity_score(sentence[n], original_sentence) # similiraty score between original and grammatically correct sentence
+    }
+
+    return [d]
