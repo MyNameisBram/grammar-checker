@@ -1,0 +1,23 @@
+<div>
+    <h1>OOOOooooh Hello</h1>
+    <form method="POST" action="{{url_for('main.test_predict')}}">
+        <label for="some_text">Enter Text</label>
+        <input id="some_text" name="some_text" type="text" placeholder="gimme some text yumyumyummy">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% if pred %}
+<div>
+    <table>
+        <tbody>
+            {% for key, value in pred.items() %}
+            <tr>
+                <td>{{key}}</td>
+                <td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
